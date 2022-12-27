@@ -1,0 +1,172 @@
+Лабораторна робота № 1
+
+1. Створити змінні базових (atomic) типів. Базові типи: character, numeric, integer, complex, logical.
+
+text <- "hello"
+text
+number <- 0.25 
+number
+intNumber <- 100L 
+intNumber
+complexNumber <- 51+3i 
+complexNumber
+x <- TRUE 
+x
+
+Результат: 
+[1] "hello"
+[1] 0.25
+[1] 100
+[1] 51+3i
+[1] TRUE
+
+2. Створити вектори, які: містить послідовність з 5 до 75; містить числа 3.14, 2.71, 0, 13; 100 значень TRUE.
+
+sq <- 5:75
+sq
+vect <- c(3.14, 2.71, 0, 13)
+vect
+t100 <- c(rep(x, length=100))
+t100
+
+Результат: 
+[1]  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37
+[34] 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70
+[67] 71 72 73 74 75
+
+[1]  3.14  2.71  0.00 13.00
+
+  [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+ [20] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+ [39] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+ [58] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+ [77] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+ [96] TRUE TRUE TRUE TRUE TRUE
+
+3. Створити наступну матрицю за допомогою matrix, та за допомогою cbind
+або rbind
+0.5  1.3  3.5
+3.9  131  2.8
+0    2.2  4.6
+2    7    5.1
+
+X <- matrix(data = c(0.5, 1.3, 3.5, 3.9, 131, 2.8, 0, 2.2, 4.6, 2, 7, 5.1),
+            nrow = 4,
+            ncol = 3,
+            byrow = TRUE)
+print(X)
+M <- matrix(data = c(0.5, 1.3, 3.9, 131, 0, 2.2, 2, 7),
+            nrow = 4,
+            ncol = 2,
+            byrow = TRUE)
+print(M)
+M <- cbind(M, c(3.5, 2.8, 4.6, 5.1))
+print(M)
+
+Результат: 
+
+     [,1]  [,2] [,3]
+[1,]  0.5   1.3  3.5
+[2,]  3.9 131.0  2.8
+[3,]  0.0   2.2  4.6
+[4,]  2.0   7.0  5.1
+
+
+     [,1]  [,2]
+[1,]  0.5   1.3
+[2,]  3.9 131.0
+[3,]  0.0   2.2
+[4,]  2.0   7.0
+
+     [,1]  [,2] [,3]
+[1,]  0.5   1.3  3.5
+[2,]  3.9 131.0  2.8
+[3,]  0.0   2.2  4.6
+[4,]  2.0   7.0  5.1
+
+4. Створити довільний список (list), в який включити всі базові типи.
+
+newList <- list(3,
+                "R is fun!",
+                0.1,
+                9+1i,
+                TRUE)
+print(newList)
+
+Результат: 
+
+[[1]]
+[1] 3
+
+[[2]]
+[1] "R is fun!"
+
+[[3]]
+[1] 0.1
+
+[[4]]
+[1] 9+1i
+
+[[5]]
+[1] TRUE
+
+5. Створити фактор з трьома рівнями «baby», «child», «adult».
+
+ageVector <- c(rep("baby", 3),
+               rep("child", 5),
+               rep("adult", 8))
+ageFactor <- factor(ageVector, levels = c("baby", "child", "adult"))
+print(ageFactor)
+
+Результат: 
+ [1] baby  baby  baby  child child child child child adult adult adult adult adult adult adult adult
+Levels: baby child adult
+
+6. Знайти індекс першого значення NA в векторі 1, 2, 3, 4, NA, 6, 7, NA, 9, NA, 11. Знайти кількість значень NA.
+
+myVect <- c(1, 2, 3, 4, NA, 6, 7, NA, 9, NA, 11)
+print(myVect)
+which(is.na(myVect))[1]
+length(which(is.na(myVect)))
+
+Результат: 
+> myVect <- c(1, 2, 3, 4, NA, 6, 7, NA, 9, NA, 11)
+> print(myVect)
+ [1]  1  2  3  4 NA  6  7 NA  9 NA 11
+> which(is.na(myVect))[1]
+[1] 5
+> length(which(is.na(myVect)))
+[1] 3
+
+
+7. Створити довільний data frame та вивести в консоль.
+
+a <- c(1, 2, 3, 4, 5)
+b <- c("R", "Is", "Fun!", "Let's", "Learn")
+c <- c(TRUE, FALSE, TRUE, TRUE, FALSE)
+myFrame <- data.frame(a, b, c)
+myFrame
+
+Результат: 
+
+a     b     c
+1 1     R  TRUE
+2 2    Is FALSE
+3 3  Fun!  TRUE
+4 4 Let's  TRUE
+5 5 Learn FALSE
+
+
+8. Змінити імена стовпців цього data frame.
+
+colnames(myFrame) <- c("numeric", "character", "logical")
+myFrame
+
+Результат: 
+
+ numeric character logical
+1       1         R    TRUE
+2       2        Is   FALSE
+3       3      Fun!    TRUE
+4       4     Let's    TRUE
+5       5     Learn   FALSE
