@@ -79,8 +79,9 @@ print(length(cr))
 
 > cr <- corr("specdata", 5000)
 > print(head(cr)) 
-[1] numeric(0)
+numeric(0)
 > print(summary(cr))
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+                                                
 > print(length(cr))
 [1] 0
